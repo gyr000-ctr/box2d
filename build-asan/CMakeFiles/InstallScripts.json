@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/gyr/feedback/uid8075/build-asan/cmake_install.cmake",
+		"/home/gyr/feedback/uid8075/build-asan/src/cmake_install.cmake",
+		"/home/gyr/feedback/uid8075/build-asan/shared/cmake_install.cmake",
+		"/home/gyr/feedback/uid8075/build-asan/test/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

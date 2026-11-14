@@ -1,0 +1,428 @@
+[
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/aabb.c.o -c /home/gyr/feedback/uid8075/src/aabb.c",
+  "file": "/home/gyr/feedback/uid8075/src/aabb.c",
+  "output": "src/CMakeFiles/box2d.dir/aabb.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/arena_allocator.c.o -c /home/gyr/feedback/uid8075/src/arena_allocator.c",
+  "file": "/home/gyr/feedback/uid8075/src/arena_allocator.c",
+  "output": "src/CMakeFiles/box2d.dir/arena_allocator.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/bitset.c.o -c /home/gyr/feedback/uid8075/src/bitset.c",
+  "file": "/home/gyr/feedback/uid8075/src/bitset.c",
+  "output": "src/CMakeFiles/box2d.dir/bitset.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/body.c.o -c /home/gyr/feedback/uid8075/src/body.c",
+  "file": "/home/gyr/feedback/uid8075/src/body.c",
+  "output": "src/CMakeFiles/box2d.dir/body.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/broad_phase.c.o -c /home/gyr/feedback/uid8075/src/broad_phase.c",
+  "file": "/home/gyr/feedback/uid8075/src/broad_phase.c",
+  "output": "src/CMakeFiles/box2d.dir/broad_phase.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/chain_builder.c.o -c /home/gyr/feedback/uid8075/src/chain_builder.c",
+  "file": "/home/gyr/feedback/uid8075/src/chain_builder.c",
+  "output": "src/CMakeFiles/box2d.dir/chain_builder.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/constraint_graph.c.o -c /home/gyr/feedback/uid8075/src/constraint_graph.c",
+  "file": "/home/gyr/feedback/uid8075/src/constraint_graph.c",
+  "output": "src/CMakeFiles/box2d.dir/constraint_graph.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/contact_solver.c.o -c /home/gyr/feedback/uid8075/src/contact_solver.c",
+  "file": "/home/gyr/feedback/uid8075/src/contact_solver.c",
+  "output": "src/CMakeFiles/box2d.dir/contact_solver.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/contact_solver_w4.c.o -c /home/gyr/feedback/uid8075/src/contact_solver_w4.c",
+  "file": "/home/gyr/feedback/uid8075/src/contact_solver_w4.c",
+  "output": "src/CMakeFiles/box2d.dir/contact_solver_w4.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/contact_solver_w8.c.o -c /home/gyr/feedback/uid8075/src/contact_solver_w8.c",
+  "file": "/home/gyr/feedback/uid8075/src/contact_solver_w8.c",
+  "output": "src/CMakeFiles/box2d.dir/contact_solver_w8.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/contact.c.o -c /home/gyr/feedback/uid8075/src/contact.c",
+  "file": "/home/gyr/feedback/uid8075/src/contact.c",
+  "output": "src/CMakeFiles/box2d.dir/contact.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/core.c.o -c /home/gyr/feedback/uid8075/src/core.c",
+  "file": "/home/gyr/feedback/uid8075/src/core.c",
+  "output": "src/CMakeFiles/box2d.dir/core.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/distance_joint.c.o -c /home/gyr/feedback/uid8075/src/distance_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/distance_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/distance_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/distance.c.o -c /home/gyr/feedback/uid8075/src/distance.c",
+  "file": "/home/gyr/feedback/uid8075/src/distance.c",
+  "output": "src/CMakeFiles/box2d.dir/distance.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/dynamic_tree.c.o -c /home/gyr/feedback/uid8075/src/dynamic_tree.c",
+  "file": "/home/gyr/feedback/uid8075/src/dynamic_tree.c",
+  "output": "src/CMakeFiles/box2d.dir/dynamic_tree.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/geometry.c.o -c /home/gyr/feedback/uid8075/src/geometry.c",
+  "file": "/home/gyr/feedback/uid8075/src/geometry.c",
+  "output": "src/CMakeFiles/box2d.dir/geometry.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/hull.c.o -c /home/gyr/feedback/uid8075/src/hull.c",
+  "file": "/home/gyr/feedback/uid8075/src/hull.c",
+  "output": "src/CMakeFiles/box2d.dir/hull.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/id_pool.c.o -c /home/gyr/feedback/uid8075/src/id_pool.c",
+  "file": "/home/gyr/feedback/uid8075/src/id_pool.c",
+  "output": "src/CMakeFiles/box2d.dir/id_pool.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/island.c.o -c /home/gyr/feedback/uid8075/src/island.c",
+  "file": "/home/gyr/feedback/uid8075/src/island.c",
+  "output": "src/CMakeFiles/box2d.dir/island.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/joint.c.o -c /home/gyr/feedback/uid8075/src/joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/joint.c",
+  "output": "src/CMakeFiles/box2d.dir/joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/manifold.c.o -c /home/gyr/feedback/uid8075/src/manifold.c",
+  "file": "/home/gyr/feedback/uid8075/src/manifold.c",
+  "output": "src/CMakeFiles/box2d.dir/manifold.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/math_functions.c.o -c /home/gyr/feedback/uid8075/src/math_functions.c",
+  "file": "/home/gyr/feedback/uid8075/src/math_functions.c",
+  "output": "src/CMakeFiles/box2d.dir/math_functions.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/motor_joint.c.o -c /home/gyr/feedback/uid8075/src/motor_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/motor_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/motor_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/mover_joint.c.o -c /home/gyr/feedback/uid8075/src/mover_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/mover_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/mover_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/mover.c.o -c /home/gyr/feedback/uid8075/src/mover.c",
+  "file": "/home/gyr/feedback/uid8075/src/mover.c",
+  "output": "src/CMakeFiles/box2d.dir/mover.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/parallel_for.c.o -c /home/gyr/feedback/uid8075/src/parallel_for.c",
+  "file": "/home/gyr/feedback/uid8075/src/parallel_for.c",
+  "output": "src/CMakeFiles/box2d.dir/parallel_for.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/physics_world.c.o -c /home/gyr/feedback/uid8075/src/physics_world.c",
+  "file": "/home/gyr/feedback/uid8075/src/physics_world.c",
+  "output": "src/CMakeFiles/box2d.dir/physics_world.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/pogo_joint.c.o -c /home/gyr/feedback/uid8075/src/pogo_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/pogo_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/pogo_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/prismatic_joint.c.o -c /home/gyr/feedback/uid8075/src/prismatic_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/prismatic_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/prismatic_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/recording.c.o -c /home/gyr/feedback/uid8075/src/recording.c",
+  "file": "/home/gyr/feedback/uid8075/src/recording.c",
+  "output": "src/CMakeFiles/box2d.dir/recording.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/replay.c.o -c /home/gyr/feedback/uid8075/src/replay.c",
+  "file": "/home/gyr/feedback/uid8075/src/replay.c",
+  "output": "src/CMakeFiles/box2d.dir/replay.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/revolute_joint.c.o -c /home/gyr/feedback/uid8075/src/revolute_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/revolute_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/revolute_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/scheduler.c.o -c /home/gyr/feedback/uid8075/src/scheduler.c",
+  "file": "/home/gyr/feedback/uid8075/src/scheduler.c",
+  "output": "src/CMakeFiles/box2d.dir/scheduler.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/sensor.c.o -c /home/gyr/feedback/uid8075/src/sensor.c",
+  "file": "/home/gyr/feedback/uid8075/src/sensor.c",
+  "output": "src/CMakeFiles/box2d.dir/sensor.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/shape.c.o -c /home/gyr/feedback/uid8075/src/shape.c",
+  "file": "/home/gyr/feedback/uid8075/src/shape.c",
+  "output": "src/CMakeFiles/box2d.dir/shape.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/soft_body.c.o -c /home/gyr/feedback/uid8075/src/soft_body.c",
+  "file": "/home/gyr/feedback/uid8075/src/soft_body.c",
+  "output": "src/CMakeFiles/box2d.dir/soft_body.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/simd.c.o -c /home/gyr/feedback/uid8075/src/simd.c",
+  "file": "/home/gyr/feedback/uid8075/src/simd.c",
+  "output": "src/CMakeFiles/box2d.dir/simd.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/snapshot.c.o -c /home/gyr/feedback/uid8075/src/snapshot.c",
+  "file": "/home/gyr/feedback/uid8075/src/snapshot.c",
+  "output": "src/CMakeFiles/box2d.dir/snapshot.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/solver_set.c.o -c /home/gyr/feedback/uid8075/src/solver_set.c",
+  "file": "/home/gyr/feedback/uid8075/src/solver_set.c",
+  "output": "src/CMakeFiles/box2d.dir/solver_set.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/solver.c.o -c /home/gyr/feedback/uid8075/src/solver.c",
+  "file": "/home/gyr/feedback/uid8075/src/solver.c",
+  "output": "src/CMakeFiles/box2d.dir/solver.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/table.c.o -c /home/gyr/feedback/uid8075/src/table.c",
+  "file": "/home/gyr/feedback/uid8075/src/table.c",
+  "output": "src/CMakeFiles/box2d.dir/table.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/timer.c.o -c /home/gyr/feedback/uid8075/src/timer.c",
+  "file": "/home/gyr/feedback/uid8075/src/timer.c",
+  "output": "src/CMakeFiles/box2d.dir/timer.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/types.c.o -c /home/gyr/feedback/uid8075/src/types.c",
+  "file": "/home/gyr/feedback/uid8075/src/types.c",
+  "output": "src/CMakeFiles/box2d.dir/types.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/weld_joint.c.o -c /home/gyr/feedback/uid8075/src/weld_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/weld_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/weld_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/src",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -DBOX2D_VALIDATE -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/src -O3 -DNDEBUG -std=gnu17 -fvisibility=hidden -ffp-contract=off -Wmissing-prototypes -Wall -Wextra -pedantic -Wno-unused-value -o CMakeFiles/box2d.dir/wheel_joint.c.o -c /home/gyr/feedback/uid8075/src/wheel_joint.c",
+  "file": "/home/gyr/feedback/uid8075/src/wheel_joint.c",
+  "output": "src/CMakeFiles/box2d.dir/wheel_joint.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/shared",
+  "command": "/usr/bin/cc  -I/home/gyr/feedback/uid8075/shared -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -O3 -DNDEBUG -std=gnu17 -ffp-contract=off -o CMakeFiles/shared.dir/benchmarks.c.o -c /home/gyr/feedback/uid8075/shared/benchmarks.c",
+  "file": "/home/gyr/feedback/uid8075/shared/benchmarks.c",
+  "output": "shared/CMakeFiles/shared.dir/benchmarks.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/shared",
+  "command": "/usr/bin/cc  -I/home/gyr/feedback/uid8075/shared -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -O3 -DNDEBUG -std=gnu17 -ffp-contract=off -o CMakeFiles/shared.dir/determinism.c.o -c /home/gyr/feedback/uid8075/shared/determinism.c",
+  "file": "/home/gyr/feedback/uid8075/shared/determinism.c",
+  "output": "shared/CMakeFiles/shared.dir/determinism.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/shared",
+  "command": "/usr/bin/cc  -I/home/gyr/feedback/uid8075/shared -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -O3 -DNDEBUG -std=gnu17 -ffp-contract=off -o CMakeFiles/shared.dir/human.c.o -c /home/gyr/feedback/uid8075/shared/human.c",
+  "file": "/home/gyr/feedback/uid8075/shared/human.c",
+  "output": "shared/CMakeFiles/shared.dir/human.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/shared",
+  "command": "/usr/bin/cc  -I/home/gyr/feedback/uid8075/shared -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -O3 -DNDEBUG -std=gnu17 -ffp-contract=off -o CMakeFiles/shared.dir/utils.c.o -c /home/gyr/feedback/uid8075/shared/utils.c",
+  "file": "/home/gyr/feedback/uid8075/shared/utils.c",
+  "output": "shared/CMakeFiles/shared.dir/utils.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/main.c.o -c /home/gyr/feedback/uid8075/test/main.c",
+  "file": "/home/gyr/feedback/uid8075/test/main.c",
+  "output": "test/CMakeFiles/test.dir/main.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_bitset.c.o -c /home/gyr/feedback/uid8075/test/test_bitset.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_bitset.c",
+  "output": "test/CMakeFiles/test.dir/test_bitset.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_chain.c.o -c /home/gyr/feedback/uid8075/test/test_chain.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_chain.c",
+  "output": "test/CMakeFiles/test.dir/test_chain.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_collision.c.o -c /home/gyr/feedback/uid8075/test/test_collision.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_collision.c",
+  "output": "test/CMakeFiles/test.dir/test_collision.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_container.c.o -c /home/gyr/feedback/uid8075/test/test_container.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_container.c",
+  "output": "test/CMakeFiles/test.dir/test_container.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_determinism.c.o -c /home/gyr/feedback/uid8075/test/test_determinism.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_determinism.c",
+  "output": "test/CMakeFiles/test.dir/test_determinism.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_distance.c.o -c /home/gyr/feedback/uid8075/test/test_distance.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_distance.c",
+  "output": "test/CMakeFiles/test.dir/test_distance.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_dynamic_tree.c.o -c /home/gyr/feedback/uid8075/test/test_dynamic_tree.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_dynamic_tree.c",
+  "output": "test/CMakeFiles/test.dir/test_dynamic_tree.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_id.c.o -c /home/gyr/feedback/uid8075/test/test_id.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_id.c",
+  "output": "test/CMakeFiles/test.dir/test_id.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_invalid_input.c.o -c /home/gyr/feedback/uid8075/test/test_invalid_input.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_invalid_input.c",
+  "output": "test/CMakeFiles/test.dir/test_invalid_input.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_large_world.c.o -c /home/gyr/feedback/uid8075/test/test_large_world.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_large_world.c",
+  "output": "test/CMakeFiles/test.dir/test_large_world.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_math.c.o -c /home/gyr/feedback/uid8075/test/test_math.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_math.c",
+  "output": "test/CMakeFiles/test.dir/test_math.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_mover.c.o -c /home/gyr/feedback/uid8075/test/test_mover.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_mover.c",
+  "output": "test/CMakeFiles/test.dir/test_mover.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_recording.c.o -c /home/gyr/feedback/uid8075/test/test_recording.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_recording.c",
+  "output": "test/CMakeFiles/test.dir/test_recording.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_restitution.c.o -c /home/gyr/feedback/uid8075/test/test_restitution.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_restitution.c",
+  "output": "test/CMakeFiles/test.dir/test_restitution.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_shape.c.o -c /home/gyr/feedback/uid8075/test/test_shape.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_shape.c",
+  "output": "test/CMakeFiles/test.dir/test_shape.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_snapshot.c.o -c /home/gyr/feedback/uid8075/test/test_snapshot.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_snapshot.c",
+  "output": "test/CMakeFiles/test.dir/test_snapshot.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_soft_body.c.o -c /home/gyr/feedback/uid8075/test/test_soft_body.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_soft_body.c",
+  "output": "test/CMakeFiles/test.dir/test_soft_body.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_sort.c.o -c /home/gyr/feedback/uid8075/test/test_sort.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_sort.c",
+  "output": "test/CMakeFiles/test.dir/test_sort.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_table.c.o -c /home/gyr/feedback/uid8075/test/test_table.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_table.c",
+  "output": "test/CMakeFiles/test.dir/test_table.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_thread.c.o -c /home/gyr/feedback/uid8075/test/test_thread.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_thread.c",
+  "output": "test/CMakeFiles/test.dir/test_thread.c.o"
+},
+{
+  "directory": "/home/gyr/feedback/uid8075/build-nosimd/test",
+  "command": "/usr/bin/cc -DBOX2D_DISABLE_SIMD -I/home/gyr/feedback/uid8075/src -I/home/gyr/feedback/uid8075/src/../include -I/home/gyr/feedback/uid8075/build-nosimd/src -I/home/gyr/feedback/uid8075/shared -O3 -DNDEBUG -std=c17 -ffp-contract=off -o CMakeFiles/test.dir/test_world.c.o -c /home/gyr/feedback/uid8075/test/test_world.c",
+  "file": "/home/gyr/feedback/uid8075/test/test_world.c",
+  "output": "test/CMakeFiles/test.dir/test_world.c.o"
+}
+]

@@ -7,6 +7,7 @@
 #include "collision.h"
 #include "constants.h"
 #include "id.h"
+#include "soft_body.h"
 #include "types.h"
 
 #include <stdbool.h>

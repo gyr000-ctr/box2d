@@ -227,6 +227,10 @@ bool b2WakeBody( b2World* world, b2Body* body );
 void b2UpdateBodyMassData( b2World* world, b2Body* body );
 void b2SyncBodyFlags( b2World* world, b2Body* body );
 
+// Clamp the linear velocity of a body state to the world maximum. Used internally by the soft
+// body coupling as well as the impulse API.
+void b2LimitVelocity( b2BodyState* state, float maxLinearSpeed );
+
 // Build a sweep relative to a base position so continuous collision keeps float precision far
 // from the origin. The base cancels out of the relative motion the TOI actually solves.
 static inline b2Sweep b2MakeRelativeSweep( const b2BodySim* bodySim, b2Pos base )

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libshared.a CMakeFiles/shared.dir/benchmarks.c.o CMakeFiles/shared.dir/determinism.c.o CMakeFiles/shared.dir/human.c.o CMakeFiles/shared.dir/utils.c.o
+/usr/bin/ranlib libshared.a

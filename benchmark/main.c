@@ -169,6 +169,7 @@ int main( int argc, char** argv )
 		{ "tree_cast", NULL, CreateTreeCast, StepTreeCast, 200, DestroyTreeCast },
 		{ "tile_world", GetTileWorldCapacity, CreateTileWorld, StepTileWorld, 300, DestroyTileWorld },
 		{ "sleep", GetSleepCapacity, CreateSleep, StepSleep, 300 },
+		{ "soft_cloth", GetSoftClothCapacity, CreateSoftCloth, StepSoftCloth, 300 },
 	};
 
 	int benchmarkCount = ARRAY_COUNT( benchmarks );

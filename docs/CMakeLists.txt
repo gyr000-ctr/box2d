@@ -62,6 +62,7 @@ doxygen_add_docs(doc
                 "foundation.md"
                 "collision.md"
                 "simulation.md"
+                "soft_body.md"
                 "loose_ends.md"
                 "recording.md"
                 "large_worlds.md"

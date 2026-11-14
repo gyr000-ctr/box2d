@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/gyr/feedback/uid8075/build-nosimd/cmake_install.cmake",
+		"/home/gyr/feedback/uid8075/build-nosimd/src/cmake_install.cmake",
+		"/home/gyr/feedback/uid8075/build-nosimd/shared/cmake_install.cmake",
+		"/home/gyr/feedback/uid8075/build-nosimd/test/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

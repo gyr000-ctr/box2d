@@ -61,6 +61,8 @@ set(BOX2D_SOURCE_FILES
 	sensor.h
 	shape.c
 	shape.h
+	soft_body.c
+	soft_body.h
 	simd.c
 	simd.h
 	snapshot.c
@@ -87,6 +89,7 @@ set(BOX2D_API_FILES
 	../include/box2d/id.h
 	../include/box2d/math_functions.h
 	../include/box2d/math_types.h
+	../include/box2d/soft_body.h
 	../include/box2d/types.h
 )
 

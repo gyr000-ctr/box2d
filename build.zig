@@ -140,6 +140,7 @@ fn compileBox2d(b: *Build, target: ResolvedTarget, optimize: OptimizeMode, optio
         "src/scheduler.c",
         "src/sensor.c",
         "src/shape.c",
+        "src/soft_body.c",
         "src/simd.c",
         "src/snapshot.c",
         "src/solver_set.c",

@@ -173,6 +173,7 @@ B2_INLINE int b2RemoveHelper( void* data, int* count, int index, int elementSize
 
 b2DeclareArrayNative( int );
 b2DeclareArrayNative( uint64_t );
+b2DeclareArrayNative( float );
 b2DeclareArray( b2AABB );
 b2DeclareArray( b2Body );
 b2DeclareArray( b2BodySim );

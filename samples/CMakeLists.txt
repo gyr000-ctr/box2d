@@ -162,6 +162,7 @@ set(BOX2D_SAMPLE_COMMON_FILES
     sample_restitution.cpp
     sample_robustness.cpp
     sample_shapes.cpp
+    sample_soft_body.cpp
     sample_stacking.cpp
     sample_world.cpp
 )

@@ -82,6 +82,14 @@ typedef struct b2ContactId
 	uint32_t generation;
 } b2ContactId;
 
+/// Soft body id references a soft body instance. This should be treated as an opaque handle.
+typedef struct b2SoftBodyId
+{
+	int32_t index1;
+	uint16_t world0;
+	uint16_t generation;
+} b2SoftBodyId;
+
 // clang-format off
 #ifdef __cplusplus
 /// A null id. Works for any id type.
@@ -103,6 +111,7 @@ static const b2ShapeId b2_nullShapeId = B2_NULL_ID;
 static const b2ChainId b2_nullChainId = B2_NULL_ID;
 static const b2JointId b2_nullJointId = B2_NULL_ID;
 static const b2ContactId b2_nullContactId = B2_NULL_ID;
+static const b2SoftBodyId b2_nullSoftBodyId = B2_NULL_ID;
 
 /// Macro to determine if any id is null.
 #define B2_IS_NULL( id ) ( ( id ).index1 == 0 )

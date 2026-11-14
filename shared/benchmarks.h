@@ -63,6 +63,11 @@ float StepTileWorld( b2WorldId worldId, int stepCount );
 void DestroyTileWorld( void );
 b2TreeStats GetTileWorldBenchmarkStats( void );
 
+// Optional soft body cloth benchmark
+b2Capacity GetSoftClothCapacity( void );
+void CreateSoftCloth( b2WorldId worldId );
+float StepSoftCloth( b2WorldId worldId, int stepCount );
+
 #ifdef __cplusplus
 }
 #endif

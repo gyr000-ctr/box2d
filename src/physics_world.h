@@ -13,6 +13,7 @@ typedef struct b2Recording b2Recording;
 #include "id_pool.h"
 #include "sensor.h"
 #include "shape.h"
+#include "soft_body.h"
 #include "solver_set.h"
 
 #include "box2d/types.h"
@@ -122,6 +123,17 @@ typedef struct b2World
 
 	// This is a dense array of sensor data.
 	b2Array( b2Sensor ) sensors;
+
+	// Optional soft body pool. Empty unless the user explicitly creates soft bodies, so rigid
+	// body behavior is unchanged when the feature is unused.
+	b2IdPool softBodyIdPool;
+	b2Array( b2SoftBody ) softBodies;
+
+	// Per-internal-body-id impulse accumulators used to push two-way coupling impulses from soft
+	// particles into rigid bodies after the soft body step. Grown only outside of stepping.
+	b2Array( b2Vec2 ) softLinearImpulses;
+	b2Array( float ) softAngularImpulses;
+	b2Array( int ) softImpulseBodyIds;
 
 	// Per thread storage
 	b2Array( b2TaskContext ) taskContexts;

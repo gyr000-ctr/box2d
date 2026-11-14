@@ -312,6 +312,10 @@ b2WorldId b2CreateWorld( const b2WorldDef* def )
 
 	b2CreateWorkerContexts( world );
 
+	// Optional soft body support. The pool starts empty and only grows when soft bodies are
+	// explicitly created.
+	b2CreateSoftBodyPool( world );
+
 	world->debugBodySet = b2CreateBitSet( 256 );
 	world->debugJointSet = b2CreateBitSet( 256 );
 	world->debugContactSet = b2CreateBitSet( 256 );
@@ -419,6 +423,9 @@ void b2DestroyWorld( b2WorldId worldId )
 	b2DestroyIdPool( &world->jointIdPool );
 	b2DestroyIdPool( &world->islandIdPool );
 	b2DestroyIdPool( &world->solverSetIdPool );
+
+	// Optional soft body pool. No-op when the feature was never used.
+	b2DestroySoftBodyPool( world );
 
 	b2DestroyStack( &world->stack );
 
@@ -1006,6 +1013,15 @@ void b2World_Step( b2WorldId worldId, float timeStep, int subStepCount )
 		world->profile.sensors = b2GetMilliseconds( sensorTicks );
 	}
 
+	// Optional soft bodies. Runs after the rigid solve so particles see the final body poses of
+	// this step, and reuses the same sub-step length and contact filtering. No-op without soft
+	// bodies, leaving rigid behavior and results unchanged.
+	if ( timeStep > 0.0f )
+	{
+		b2StepSoftBodies( world, timeStep, context.inv_dt, context.h, context.inv_h,
+						  context.subStepCount );
+	}
+
 	world->profile.step = b2GetMilliseconds( stepTicks );
 
 	B2_ASSERT( b2GetStackAllocation( &world->stack ) == 0 );
@@ -1442,6 +1458,9 @@ void b2World_Draw( b2WorldId worldId, b2DebugDraw* draw )
 			word = word & ( word - 1 );
 		}
 	}
+
+	// Optional soft bodies drawn after the rigid scene so particles and constraints stay visible.
+	b2DrawSoftBodies( world, draw );
 }
 
 bool b2ComputeWorldBounds( b2World* world, b2AABB* bounds )
@@ -2363,6 +2382,33 @@ void b2World_DumpMemoryStats( b2WorldId worldId )
 	total += debugBytes;
 
 	fprintf( file, "debug draw: %d\n\n", debugBytes );
+
+	// Optional soft body pool
+	int softBytes = b2Array_ByteCount( world->softBodies );
+	softBytes += b2GetIdBytes( &world->softBodyIdPool );
+	softBytes += b2Array_ByteCount( world->softLinearImpulses );
+	softBytes += b2Array_ByteCount( world->softAngularImpulses );
+	softBytes += b2Array_ByteCount( world->softImpulseBodyIds );
+	for ( int i = 0; i < world->softBodies.count; ++i )
+	{
+		b2SoftBody* softBody = world->softBodies.data + i;
+		if ( softBody->inUse == false )
+		{
+			continue;
+		}
+		softBytes += b2Array_ByteCount( softBody->particles );
+		softBytes += b2Array_ByteCount( softBody->constraints );
+		softBytes += b2Array_ByteCount( softBody->anchors );
+		softBytes += b2Array_ByteCount( softBody->triangles );
+		softBytes += b2Array_ByteCount( softBody->shapeCandidates );
+		softBytes += b2Array_ByteCount( softBody->grid.bucketHead );
+		softBytes += b2Array_ByteCount( softBody->grid.nextLink );
+		softBytes += b2Array_ByteCount( softBody->grid.cellX );
+		softBytes += b2Array_ByteCount( softBody->grid.cellY );
+		softBytes += b2Array_ByteCount( softBody->grid.particleBucket );
+	}
+	total += softBytes;
+	fprintf( file, "soft bodies: %d\n\n", softBytes );
 
 	// stack allocator
 	total += world->stack.capacity;

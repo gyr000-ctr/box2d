@@ -1894,3 +1894,105 @@ b2TreeStats GetTileWorldBenchmarkStats( void )
 {
 	return g_tileWorld.stats;
 }
+
+// ------------------------------------------------------------------------------------------------
+// Soft body cloth benchmark. Measures the per-step cost of the PBD solver on a large grid and
+// demonstrates approximately linear scaling in particle and constraint count.
+// ------------------------------------------------------------------------------------------------
+
+#define SOFT_CLOTH_COLS ( BENCHMARK_DEBUG ? 12 : 60 )
+#define SOFT_CLOTH_ROWS ( BENCHMARK_DEBUG ? 12 : 60 )
+
+static b2SoftBodyId g_softClothId;
+
+b2Capacity GetSoftClothCapacity( void )
+{
+	b2Capacity c = {
+		.staticShapeCount = 1,
+		.dynamicShapeCount = 0,
+		.staticBodyCount = 1,
+		.dynamicBodyCount = 0,
+		.contactCount = 0,
+		.arenaByteCount = ( BENCHMARK_DEBUG ? 256 : 4096 ) * 1024,
+	};
+	return c;
+}
+
+void CreateSoftCloth( b2WorldId worldId )
+{
+	// A static floor to give the cloth something to collide with.
+	{
+		b2BodyDef bodyDef = b2DefaultBodyDef();
+		bodyDef.position = (b2Pos){ 0.0f, -8.0f };
+		b2BodyId groundId = b2CreateBody( worldId, &bodyDef );
+		b2Polygon box = b2MakeBox( 20.0f, 0.5f );
+		b2ShapeDef shapeDef = b2DefaultShapeDef();
+		b2CreatePolygonShape( groundId, &shapeDef, &box );
+	}
+
+	const int cols = SOFT_CLOTH_COLS;
+	const int rows = SOFT_CLOTH_ROWS;
+	const int vertexCount = ( cols + 1 ) * ( rows + 1 );
+	const int triangleCount = 2 * cols * rows;
+	const float spacing = 0.2f;
+
+	b2Vec2* vertices = (b2Vec2*)malloc( (size_t)vertexCount * sizeof( b2Vec2 ) );
+	b2SoftBodyTriangle* triangles =
+		(b2SoftBodyTriangle*)malloc( (size_t)triangleCount * sizeof( b2SoftBodyTriangle ) );
+
+	for ( int y = 0; y <= rows; ++y )
+	{
+		for ( int x = 0; x <= cols; ++x )
+		{
+			int i = y * ( cols + 1 ) + x;
+			vertices[i].x = ( x - 0.5f * cols ) * spacing;
+			vertices[i].y = 6.0f - y * spacing;
+		}
+	}
+
+	int t = 0;
+	for ( int y = 0; y < rows; ++y )
+	{
+		for ( int x = 0; x < cols; ++x )
+		{
+			int a = y * ( cols + 1 ) + x;
+			int b = a + 1;
+			int c = a + ( cols + 1 );
+			int d = c + 1;
+			triangles[t++] = (b2SoftBodyTriangle){ a, b, c };
+			triangles[t++] = (b2SoftBodyTriangle){ b, d, c };
+		}
+	}
+
+	b2SoftBodyDef def = b2DefaultSoftBodyDef();
+	def.vertices = vertices;
+	def.vertexCount = vertexCount;
+	def.triangles = triangles;
+	def.triangleCount = triangleCount;
+	def.iterations = 8;
+	def.enableSelfCollision = true;
+	def.particleRadius = 0.04f;
+
+	// Anchor the whole top row.
+	b2SoftBodyAnchor* anchors = (b2SoftBodyAnchor*)malloc( (size_t)( cols + 1 ) * sizeof( b2SoftBodyAnchor ) );
+	for ( int x = 0; x <= cols; ++x )
+	{
+		anchors[x] = (b2SoftBodyAnchor){ x, b2_nullBodyId, vertices[x] };
+	}
+	def.anchors = anchors;
+	def.anchorCount = cols + 1;
+
+	g_softClothId = b2CreateSoftBody( worldId, &def );
+
+	free( vertices );
+	free( triangles );
+	free( anchors );
+}
+
+float StepSoftCloth( b2WorldId worldId, int stepCount )
+{
+	(void)stepCount;
+	(void)worldId;
+	b2SoftBodyStats stats = b2SoftBody_GetStats( g_softClothId );
+	return (float)stats.particleCount;
+}

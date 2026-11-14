@@ -22,7 +22,7 @@
 
 _Static_assert( B2_NAME_LENGTH >= 0, "minimum name length" );
 
-static void b2LimitVelocity( b2BodyState* state, float maxLinearSpeed )
+void b2LimitVelocity( b2BodyState* state, float maxLinearSpeed )
 {
 	float v2 = b2LengthSquared( state->linearVelocity );
 	if ( v2 > maxLinearSpeed * maxLinearSpeed )
@@ -276,6 +276,10 @@ b2BodyId b2CreateBody( b2WorldId worldId, const b2BodyDef* def )
 		B2_ASSERT( world->bodies.data[bodyId].id == B2_NULL_INDEX );
 	}
 
+	// Grow the soft body coupling impulse arrays alongside the body array. This runs only at body
+	// creation, so the soft body step itself stays allocation free.
+	b2EnsureSoftImpulseCapacity( world, bodyId );
+
 	b2Body* body = b2Array_Get( world->bodies, bodyId );
 
 	if ( def->name )
@@ -427,6 +431,10 @@ void b2DestroyBody( b2BodyId bodyId )
 		// Remove solver set if it is empty
 		b2DestroySolverSet( world, set->setIndex );
 	}
+
+	// Detach any soft body anchors that follow this body. They fall back to a world-space pin at
+	// the last known point.
+	b2DetachSoftBodyAnchors( world, body->id );
 
 	// Free body and id (preserve body generation)
 	b2FreeId( &world->bodyIdPool, body->id );

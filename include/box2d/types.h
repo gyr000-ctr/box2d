@@ -577,6 +577,7 @@ typedef struct b2Profile
 	float bullets;			   ///<
 	float sleepIslands;		   ///<
 	float sensors;			   ///<
+	float softBodies;		   ///< Time spent in the optional soft body solver (zero when unused)
 } b2Profile;
 
 /// Counters that give details of the simulation size.
