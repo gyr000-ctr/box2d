@@ -3,11 +3,15 @@
 
 #include "body.h"
 #include "physics_world.h"
+#include "snapshot.h"
 #include "test_macros.h"
 
 #include "box2d/box2d.h"
 #include "box2d/math_functions.h"
 #include "box2d/types.h"
+
+#include <stdlib.h>
+#include <string.h>
 
 // Read a body center of mass relative to a base position, in double precision mode. The public
 // getters demote to float (~1 m resolution at 1e7), so the precision check reaches into the body
@@ -425,6 +429,364 @@ static int LargeWorldRecordingTest( void )
 	return 0;
 }
 
+// ---------------------------------------------------------------------------
+// Joint test: spring-driven joints converge, so the settled relative state far
+// from the origin must match the origin run closely.
+
+typedef struct JointSceneResult
+{
+	b2Vec2 relPendulum;
+	b2Vec2 relDistance;
+	b2Vec2 relPrism;
+} JointSceneResult;
+
+static JointSceneResult RunJointScene( b2Pos baseVec )
+{
+	b2WorldDef worldDef = b2DefaultWorldDef();
+	worldDef.workerCount = 1;
+	b2WorldId worldId = b2CreateWorld( &worldDef );
+
+	b2BodyDef bodyDef = b2DefaultBodyDef();
+	bodyDef.position = baseVec;
+	b2BodyId groundId = b2CreateBody( worldId, &bodyDef );
+
+	b2ShapeDef shapeDef = b2DefaultShapeDef();
+	b2Polygon box = b2MakeBox( 0.25f, 0.25f );
+
+	// Pendulum on a revolute joint with a spring pulling it to a target angle
+	bodyDef = b2DefaultBodyDef();
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position = (b2Pos){ baseVec.x + 1.0f, baseVec.y };
+	b2BodyId pendulumId = b2CreateBody( worldId, &bodyDef );
+	b2CreatePolygonShape( pendulumId, &shapeDef, &box );
+
+	b2RevoluteJointDef revDef = b2DefaultRevoluteJointDef();
+	revDef.base.bodyIdA = groundId;
+	revDef.base.bodyIdB = pendulumId;
+	revDef.base.localFrameA.p = (b2Vec2){ 0.0f, 0.0f };
+	revDef.base.localFrameB.p = (b2Vec2){ -1.0f, 0.0f };
+	b2JointId revId = b2CreateRevoluteJoint( worldId, &revDef );
+	b2RevoluteJoint_EnableSpring( revId, true );
+	b2RevoluteJoint_SetSpringHertz( revId, 1.0f );
+	b2RevoluteJoint_SetSpringDampingRatio( revId, 0.7f );
+	b2RevoluteJoint_SetTargetAngle( revId, 0.5f );
+
+	// Body hanging from a stiff spring distance joint
+	bodyDef = b2DefaultBodyDef();
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position = (b2Pos){ baseVec.x + 5.0f, baseVec.y - 2.0f };
+	b2BodyId distId = b2CreateBody( worldId, &bodyDef );
+	b2CreatePolygonShape( distId, &shapeDef, &box );
+
+	b2DistanceJointDef distDef = b2DefaultDistanceJointDef();
+	distDef.base.bodyIdA = groundId;
+	distDef.base.bodyIdB = distId;
+	distDef.base.localFrameA.p = (b2Vec2){ 5.0f, 0.0f };
+	distDef.base.localFrameB.p = (b2Vec2){ 0.0f, 0.0f };
+	distDef.length = 2.0f;
+	distDef.enableSpring = true;
+	distDef.hertz = 2.0f;
+	distDef.dampingRatio = 0.7f;
+	b2CreateDistanceJoint( worldId, &distDef );
+
+	// Body on a horizontal prismatic joint with a spring centering it
+	bodyDef = b2DefaultBodyDef();
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position = (b2Pos){ baseVec.x - 3.0f, baseVec.y + 2.0f };
+	b2BodyId prismId = b2CreateBody( worldId, &bodyDef );
+	b2CreatePolygonShape( prismId, &shapeDef, &box );
+
+	b2PrismaticJointDef prismDef = b2DefaultPrismaticJointDef();
+	prismDef.base.bodyIdA = groundId;
+	prismDef.base.bodyIdB = prismId;
+	prismDef.base.localFrameA.p = (b2Vec2){ -5.0f, 2.0f };
+	prismDef.base.localFrameB.p = (b2Vec2){ 0.0f, 0.0f };
+	prismDef.enableSpring = true;
+	prismDef.hertz = 2.0f;
+	prismDef.dampingRatio = 0.7f;
+	prismDef.targetTranslation = 0.0f;
+	b2CreatePrismaticJoint( worldId, &prismDef );
+
+	// Let the springs settle
+	for ( int step = 0; step < 480; ++step )
+	{
+		b2World_Step( worldId, 1.0f / 60.0f, 4 );
+	}
+
+	JointSceneResult result;
+	result.relPendulum = BodyRelativeCenter( worldId, pendulumId, baseVec );
+	result.relDistance = BodyRelativeCenter( worldId, distId, baseVec );
+	result.relPrism = BodyRelativeCenter( worldId, prismId, baseVec );
+
+	b2DestroyWorld( worldId );
+	return result;
+}
+
+// Joints solve in relative coordinates, so a spring-settled scene far from the origin must match
+// the origin run. In a float build the 1e7 run is skipped: the anchors would collapse to the ~1 m
+// coordinate ULP and the comparison would be meaningless.
+static int LargeWorldJointTest( void )
+{
+	JointSceneResult origin = RunJointScene( (b2Pos){ 0.0f, 0.0f } );
+
+#if defined( BOX2D_DOUBLE_PRECISION )
+	JointSceneResult large = RunJointScene( (b2Pos){ 1.0e7f, 0.0f } );
+
+	ENSURE_SMALL( large.relPendulum.x - origin.relPendulum.x, 1e-3f );
+	ENSURE_SMALL( large.relPendulum.y - origin.relPendulum.y, 1e-3f );
+	ENSURE_SMALL( large.relDistance.x - origin.relDistance.x, 1e-3f );
+	ENSURE_SMALL( large.relDistance.y - origin.relDistance.y, 1e-3f );
+	ENSURE_SMALL( large.relPrism.x - origin.relPrism.x, 1e-3f );
+	ENSURE_SMALL( large.relPrism.y - origin.relPrism.y, 1e-3f );
+#endif
+
+	return 0;
+}
+
+// ---------------------------------------------------------------------------
+// Snapshot test: round trip far from the origin, then a tampered precision
+// flag must be rejected explicitly.
+
+static int LargeWorldSnapshotTest( void )
+{
+#if defined( BOX2D_DOUBLE_PRECISION )
+	b2Pos base = { 1.0e7f, 0.0f };
+#else
+	b2Pos base = { 0.0f, 0.0f };
+#endif
+
+	b2WorldDef worldDef = b2DefaultWorldDef();
+	worldDef.workerCount = 1;
+	b2WorldId worldAId = b2CreateWorld( &worldDef );
+
+	b2BodyDef bodyDef = b2DefaultBodyDef();
+	bodyDef.position = base;
+	b2BodyId groundId = b2CreateBody( worldAId, &bodyDef );
+	b2ShapeDef shapeDef = b2DefaultShapeDef();
+	b2Polygon groundBox = b2MakeBox( 10.0f, 0.5f );
+	b2CreatePolygonShape( groundId, &shapeDef, &groundBox );
+
+	b2BodyId boxIds[3];
+	b2Polygon box = b2MakeBox( 0.5f, 0.5f );
+	for ( int i = 0; i < 3; ++i )
+	{
+		bodyDef = b2DefaultBodyDef();
+		bodyDef.type = b2_dynamicBody;
+		bodyDef.position = (b2Pos){ base.x + (float)i * 0.25f, base.y + 1.5f + (float)i * 1.25f };
+		boxIds[i] = b2CreateBody( worldAId, &bodyDef );
+		b2CreatePolygonShape( boxIds[i], &shapeDef, &box );
+	}
+
+	for ( int step = 0; step < 60; ++step )
+	{
+		b2World_Step( worldAId, 1.0f / 60.0f, 4 );
+	}
+
+	int imageSize = b2World_GetSnapshot( worldAId, NULL, 0 );
+	ENSURE( imageSize > 0 );
+	uint8_t* image = malloc( (size_t)imageSize );
+	ENSURE( image != NULL );
+	ENSURE( b2World_GetSnapshot( worldAId, image, imageSize ) == imageSize );
+
+	// Continue the original world and a restored copy in lockstep; the deep state hash must
+	// agree exactly, which a demoted (float) snapshot position far from the origin would break.
+	b2WorldId worldBId = b2CreateWorldFromSnapshot( image, imageSize, 1 );
+	ENSURE( b2World_IsValid( worldBId ) );
+
+	b2World* worldA = b2GetWorldFromId( worldAId );
+	b2World* worldB = b2GetWorldFromId( worldBId );
+	ENSURE( b2HashWorldStateDeep( worldA ) == b2HashWorldStateDeep( worldB ) );
+	for ( int step = 0; step < 60; ++step )
+	{
+		b2World_Step( worldAId, 1.0f / 60.0f, 4 );
+		b2World_Step( worldBId, 1.0f / 60.0f, 4 );
+		ENSURE( b2HashWorldStateDeep( worldA ) == b2HashWorldStateDeep( worldB ) );
+	}
+
+	// The image header must carry the precision mode of this build, and flipping that bit must
+	// be rejected loudly instead of deserializing garbage. magic 'BNS2' guards the offset.
+	ENSURE( imageSize > 16 );
+	uint32_t magic;
+	memcpy( &magic, image, 4 );
+	ENSURE( magic == 0x32534E42u );
+	uint32_t flags;
+	memcpy( &flags, image + 12, 4 );
+#if defined( BOX2D_DOUBLE_PRECISION )
+	ENSURE( ( flags & 0x2u ) != 0u );
+#else
+	ENSURE( ( flags & 0x2u ) == 0u );
+#endif
+	flags ^= 0x2u;
+	memcpy( image + 12, &flags, 4 );
+	b2WorldId worldCId = b2CreateWorldFromSnapshot( image, imageSize, 1 );
+	ENSURE( b2World_IsValid( worldCId ) == false );
+
+	free( image );
+	b2DestroyWorld( worldAId );
+	b2DestroyWorld( worldBId );
+	return 0;
+}
+
+// ---------------------------------------------------------------------------
+// Long replay: an extended recording far from the origin must replay with no
+// divergence for the full run, not just the first few frames.
+
+static int LargeWorldLongReplayTest( void )
+{
+#if defined( BOX2D_DOUBLE_PRECISION )
+	b2Pos base = { 1.0e7f, 0.0f };
+#else
+	b2Pos base = { 0.0f, 0.0f };
+#endif
+
+	b2WorldDef worldDef = b2DefaultWorldDef();
+	worldDef.workerCount = 1;
+	b2WorldId worldId = b2CreateWorld( &worldDef );
+
+	b2Recording* rec = b2CreateRecording( 0 );
+	b2World_StartRecording( worldId, rec );
+
+	b2BodyDef bodyDef = b2DefaultBodyDef();
+	bodyDef.position = base;
+	b2BodyId groundId = b2CreateBody( worldId, &bodyDef );
+	b2ShapeDef shapeDef = b2DefaultShapeDef();
+	b2Polygon groundBox = b2MakeBox( 20.0f, 0.5f );
+	b2CreatePolygonShape( groundId, &shapeDef, &groundBox );
+
+	// A small pyramid plus a pendulum so contacts and a joint evolve together
+	b2Polygon box = b2MakeBox( 0.5f, 0.5f );
+	for ( int i = 0; i < 5; ++i )
+	{
+		bodyDef = b2DefaultBodyDef();
+		bodyDef.type = b2_dynamicBody;
+		bodyDef.position = (b2Pos){ base.x + (float)i * 1.1f - 2.2f, base.y + 1.0f };
+		b2BodyId id = b2CreateBody( worldId, &bodyDef );
+		b2CreatePolygonShape( id, &shapeDef, &box );
+	}
+
+	bodyDef = b2DefaultBodyDef();
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position = (b2Pos){ base.x + 6.0f, base.y };
+	b2BodyId pendulumId = b2CreateBody( worldId, &bodyDef );
+	b2CreatePolygonShape( pendulumId, &shapeDef, &box );
+
+	b2RevoluteJointDef revDef = b2DefaultRevoluteJointDef();
+	revDef.base.bodyIdA = groundId;
+	revDef.base.bodyIdB = pendulumId;
+	revDef.base.localFrameA.p = (b2Vec2){ 6.0f, 0.0f };
+	revDef.base.localFrameB.p = (b2Vec2){ 0.0f, 0.0f };
+	b2CreateRevoluteJoint( worldId, &revDef );
+
+	// 20 simulated seconds: long enough that any float demotion in the wire format would
+	// accumulate visible divergence in the replay state hash
+	for ( int step = 0; step < 1200; ++step )
+	{
+		b2World_Step( worldId, 1.0f / 60.0f, 4 );
+	}
+
+	b2World_StopRecording( worldId );
+	b2DestroyWorld( worldId );
+
+	const uint8_t* data = b2Recording_GetData( rec );
+	int size = b2Recording_GetSize( rec );
+	ENSURE( size > 0 );
+
+	ENSURE( b2ValidateRecording( data, size, 0 ) );
+	ENSURE( b2ValidateRecording( data, size, 4 ) );
+
+	b2DestroyRecording( rec );
+	return 0;
+}
+
+// ---------------------------------------------------------------------------
+// Debug draw: callbacks receive world coordinates, so they must carry full
+// precision far from the origin.
+
+typedef struct DrawCapture
+{
+	int polygonCount;
+	int circleCount;
+	b2Pos polygonOrigin;
+	b2Pos circleCenter;
+} DrawCapture;
+
+static void CaptureSolidPolygon( b2WorldTransform transform, const b2Vec2* vertices, int vertexCount, float radius,
+								 b2HexColor color, void* context )
+{
+	(void)vertices;
+	(void)vertexCount;
+	(void)radius;
+	(void)color;
+	DrawCapture* cap = context;
+	cap->polygonCount += 1;
+	cap->polygonOrigin = transform.p;
+}
+
+static void CaptureSolidCircle( b2WorldTransform transform, b2Vec2 center, float radius, b2HexColor color, void* context )
+{
+	(void)center;
+	(void)radius;
+	(void)color;
+	DrawCapture* cap = context;
+	cap->circleCount += 1;
+	cap->circleCenter = transform.p;
+}
+
+static int LargeWorldDebugDrawTest( void )
+{
+#if defined( BOX2D_DOUBLE_PRECISION )
+	b2Pos base = { 1.0e7f + 0.375f, 0.0f };
+#else
+	b2Pos base = { 0.375f, 0.0f };
+#endif
+
+	b2WorldDef worldDef = b2DefaultWorldDef();
+	worldDef.workerCount = 1;
+	b2WorldId worldId = b2CreateWorld( &worldDef );
+
+	// The fractional part of the body position is what float world coordinates cannot hold at 1e7
+	b2BodyDef bodyDef = b2DefaultBodyDef();
+	bodyDef.position = (b2Pos){ base.x + 0.25f, base.y + 0.5f };
+	b2BodyId boxBodyId = b2CreateBody( worldId, &bodyDef );
+	b2ShapeDef shapeDef = b2DefaultShapeDef();
+	b2Polygon box = b2MakeBox( 0.5f, 0.5f );
+	b2CreatePolygonShape( boxBodyId, &shapeDef, &box );
+
+	bodyDef.position = (b2Pos){ base.x + 3.0f, base.y + 0.25f };
+	b2BodyId circleBodyId = b2CreateBody( worldId, &bodyDef );
+	b2Circle circle = { { 0.0f, 0.0f }, 0.5f };
+	b2CreateCircleShape( circleBodyId, &shapeDef, &circle );
+
+	b2World_Step( worldId, 1.0f / 60.0f, 4 );
+
+	DrawCapture cap = { 0 };
+	b2DebugDraw draw = b2DefaultDebugDraw();
+	draw.DrawSolidPolygonFcn = CaptureSolidPolygon;
+	draw.DrawSolidCircleFcn = CaptureSolidCircle;
+	draw.drawShapes = true;
+	draw.context = &cap;
+	draw.drawingBounds = (b2AABB){ { base.x - 100.0f, base.y - 100.0f }, { base.x + 100.0f, base.y + 100.0f } };
+	b2World_Draw( worldId, &draw );
+
+	ENSURE( cap.polygonCount >= 1 );
+	ENSURE( cap.circleCount >= 1 );
+
+	// Static bodies do not move, so the drawn origins must match the body positions to far better
+	// than the ~1 m float ULP at 1e7
+	b2Pos expectBox = { base.x + 0.25, base.y + 0.5 };
+	b2Vec2 err = b2SubPos( cap.polygonOrigin, expectBox );
+	ENSURE_SMALL( err.x, 1e-3f );
+	ENSURE_SMALL( err.y, 1e-3f );
+
+	b2Pos expectCircle = { base.x + 3.0, base.y + 0.25 };
+	err = b2SubPos( cap.circleCenter, expectCircle );
+	ENSURE_SMALL( err.x, 1e-3f );
+	ENSURE_SMALL( err.y, 1e-3f );
+
+	b2DestroyWorld( worldId );
+	return 0;
+}
+
 int LargeWorldTest( void )
 {
 	RUN_SUBTEST( LargeWorldPyramidTest );
@@ -432,6 +794,10 @@ int LargeWorldTest( void )
 	RUN_SUBTEST( LargeWorldRayCastTest );
 	RUN_SUBTEST( LargeWorldOriginQueryTest );
 	RUN_SUBTEST( LargeWorldRecordingTest );
+	RUN_SUBTEST( LargeWorldJointTest );
+	RUN_SUBTEST( LargeWorldSnapshotTest );
+	RUN_SUBTEST( LargeWorldLongReplayTest );
+	RUN_SUBTEST( LargeWorldDebugDrawTest );
 
 	return 0;
 }
